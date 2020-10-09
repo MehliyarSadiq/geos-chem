@@ -126,9 +126,11 @@ if [[ ${sim_name} = "fullchem" ]]; then
 	read chemgrid_num
 	if [[ ${chemgrid_num} = "1" ]]; then
 	    chemgrid="trop+strat"
+	    grid_lev=72
 	    valid_chemgrid=1
 	elif [[ ${chemgrid_num} = "2" ]]; then
 	    chemgrid="trop_only"
+	    grid_lev=47
 	    valid_chemgrid=1
 	else
 	  printf "Invalid chemistry domain option. Try again.\n"
@@ -405,24 +407,28 @@ fi
 
 #-----------------------------------------------------------------
 # Ask user to select vertical resolution
+# NOTE: Don't need this if we have selected the chemistry grid
+# option (fullchem sims only), since that specifies the levels
 #-----------------------------------------------------------------
-printf "${thinline}Choose number of levels:${thinline}"
-printf "  1. 72 (native)\n"
-printf "  2. 47 (reduced)\n"
-
-valid_lev=0
-while [ "${valid_lev}" -eq 0 ]; do
-    read lev_num
-    valid_lev=1
-    if [[ ${lev_num} = "1" ]]; then
-	grid_lev='72'
-    elif [[ ${lev_num} = "2" ]]; then
-	grid_lev='47'
-    else
-	valid_lev=0
-	printf "Invalid vertical resolution option. Try again.\n"
-    fi
-done
+if [[ "x${grid_lev}" == "x" ]]; then
+    printf "${thinline}Choose number of levels:${thinline}"
+    printf "  1. 72 (native)\n"
+    printf "  2. 47 (reduced)\n"
+    
+    valid_lev=0
+    while [ "${valid_lev}" -eq 0 ]; do
+	read lev_num
+	valid_lev=1
+	if [[ ${lev_num} = "1" ]]; then
+	    grid_lev='72'
+	elif [[ ${lev_num} = "2" ]]; then
+	    grid_lev='47'
+	else
+	    valid_lev=0
+	    printf "Invalid vertical resolution option. Try again.\n"
+	fi
+    done
+fi
 
 #-----------------------------------------------------------------
 # Ask user to define path where directoy will be created
