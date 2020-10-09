@@ -38,7 +38,8 @@ THIS_DIR=`pwd -P`
 TEST_ROOT=${1}
 
 # sed string editor commands
-SED_INPUT_GEOS="s/20190801 000000/20190701 002000/"
+SED_INPUT_GEOS_1="s/20190801 000000/20190701 002000/"
+SED_INPUT_GEOS_2="s/20190201 000000/20190101 002000/"
 SED_HISTORY_RC="s/00000100 000000/00000000 002000/"
 
 # Remove run directories in the test folder
@@ -63,61 +64,71 @@ cd $GCC_RUN_DIR
 RUNDIR="gc_4x5_standard_merra2"
 CMD="1\n1\n1\n1\n1\n${TEST_ROOT}\n${RUNDIR}\nn\n"
 printf ${CMD} | ./createRunDir.sh >> ${LOG} 2>&1
-sed -i -e "${SED_INPUT_GEOS}" ${TEST_ROOT}/${RUNDIR}/input.geos
+sed -i -e "${SED_INPUT_GEOS_1}" ${TEST_ROOT}/${RUNDIR}/input.geos
+sed -i -e "${SED_INPUT_GEOS_2}" ${TEST_ROOT}/${RUNDIR}/input.geos
 sed -i -e "${SED_HISTORY_RC}" ${TEST_ROOT}/${RUNDIR}/HISTORY.rc
 
 RUNDIR="gc_4x5_benchmark_merra2"
 CMD="1\n1\n2\n1\n1\n${TEST_ROOT}\n${RUNDIR}\nn\n"
 printf ${CMD} | ./createRunDir.sh >> ${LOG} 2>&1
-sed -i -e "${SED_INPUT_GEOS}" ${TEST_ROOT}/${RUNDIR}/input.geos
+sed -i -e "${SED_INPUT_GEOS_1}" ${TEST_ROOT}/${RUNDIR}/input.geos
+sed -i -e "${SED_INPUT_GEOS_2}" ${TEST_ROOT}/${RUNDIR}/input.geos
 sed -i -e "${SED_HISTORY_RC}" ${TEST_ROOT}/${RUNDIR}/HISTORY.rc
 
 RUNDIR="gc_4x5_CH4_merra2"
 CMD="3\n1\n1\n1\n${TEST_ROOT}\n${RUNDIR}\nn\n"
 printf ${CMD} | ./createRunDir.sh >> ${LOG} 2>&1
-sed -i -e "${SED_INPUT_GEOS}" ${TEST_ROOT}/${RUNDIR}/input.geos
+sed -i -e "${SED_INPUT_GEOS_1}" ${TEST_ROOT}/${RUNDIR}/input.geos
+sed -i -e "${SED_INPUT_GEOS_2}" ${TEST_ROOT}/${RUNDIR}/input.geos
 sed -i -e "${SED_HISTORY_RC}" ${TEST_ROOT}/${RUNDIR}/HISTORY.rc
 
 RUNDIR="gc_4x5_CO2_merra2"
 CMD="4\n1\n1\n1\n${TEST_ROOT}\n${RUNDIR}\nn\n"
 printf ${CMD} | ./createRunDir.sh >> ${LOG} 2>&1
-sed -i -e "${SED_INPUT_GEOS}" ${TEST_ROOT}/${RUNDIR}/input.geos
+sed -i -e "${SED_INPUT_GEOS_1}" ${TEST_ROOT}/${RUNDIR}/input.geos
+sed -i -e "${SED_INPUT_GEOS_2}" ${TEST_ROOT}/${RUNDIR}/input.geos
 sed -i -e "${SED_HISTORY_RC}" ${TEST_ROOT}/${RUNDIR}/HISTORY.rc
 
 RUNDIR="gc_4x5_Hg_merra2"
 CMD="5\n1\n1\n1\n${TEST_ROOT}\n${RUNDIR}\nn\n"
 printf ${CMD} | ./createRunDir.sh >> ${LOG} 2>&1
-sed -i -e "${SED_INPUT_GEOS}" ${TEST_ROOT}/${RUNDIR}/input.geos
+sed -i -e "${SED_INPUT_GEOS_1}" ${TEST_ROOT}/${RUNDIR}/input.geos
+sed -i -e "${SED_INPUT_GEOS_2}" ${TEST_ROOT}/${RUNDIR}/input.geos
 sed -i -e "${SED_HISTORY_RC}" ${TEST_ROOT}/${RUNDIR}/HISTORY.rc
 
 #RUNDIR="gc_4x5_POPs_merra2"
 #CMD="6\n1\n1\n1\n${TEST_ROOT}\n${RUNDIR}\nn\n"
 #printf ${CMD} | ./createRunDir.sh >> ${LOG} 2>&1
-#sed -i -e "${SED_INPUT_GEOS}" ${TEST_ROOT}/${RUNDIR}/input.geos
+#sed -i -e "${SED_INPUT_GEOS_1}" ${TEST_ROOT}/${RUNDIR}/input.geos
+#sed -i -e "${SED_INPUT_GEOS_2}" ${TEST_ROOT}/${RUNDIR}/input.geos
 #sed -i -e "${SED_HISTORY_RC}" ${TEST_ROOT}/${RUNDIR}/HISTORY.rc
 
 RUNDIR="gc_4x5_tagCH4_merra2"
 CMD="7\n1\n1\n1\n${TEST_ROOT}\n${RUNDIR}\nn\n"
 printf ${CMD} | ./createRunDir.sh >> ${LOG} 2>&1
-sed -i -e "${SED_INPUT_GEOS}" ${TEST_ROOT}/${RUNDIR}/input.geos
+sed -i -e "${SED_INPUT_GEOS_1}" ${TEST_ROOT}/${RUNDIR}/input.geos
+sed -i -e "${SED_INPUT_GEOS_2}" ${TEST_ROOT}/${RUNDIR}/input.geos
 sed -i -e "${SED_HISTORY_RC}" ${TEST_ROOT}/${RUNDIR}/HISTORY.rc
 
 RUNDIR="gc_4x5_tagCO_merra2"
 CMD="8\n1\n1\n1\n${TEST_ROOT}\n${RUNDIR}\nn\n"
 printf ${CMD} | ./createRunDir.sh >> ${LOG} 2>&1
-sed -i -e "${SED_INPUT_GEOS}" ${TEST_ROOT}/${RUNDIR}/input.geos
+sed -i -e "${SED_INPUT_GEOS_1}" ${TEST_ROOT}/${RUNDIR}/input.geos
+sed -i -e "${SED_INPUT_GEOS_2}" ${TEST_ROOT}/${RUNDIR}/input.geos
 sed -i -e "${SED_HISTORY_RC}" ${TEST_ROOT}/${RUNDIR}/HISTORY.rc
 
 RUNDIR="gc_4x5_tagO3_merra2"
 CMD="9\n1\n1\n1\n${TEST_ROOT}\n${RUNDIR}\nn\n"
 printf ${CMD} | ./createRunDir.sh >> ${LOG} 2>&1
-sed -i -e "${SED_INPUT_GEOS}" ${TEST_ROOT}/${RUNDIR}/input.geos
+sed -i -e "${SED_INPUT_GEOS_1}" ${TEST_ROOT}/${RUNDIR}/input.geos
+sed -i -e "${SED_INPUT_GEOS_2}" ${TEST_ROOT}/${RUNDIR}/input.geos
 sed -i -e "${SED_HISTORY_RC}" ${TEST_ROOT}/${RUNDIR}/HISTORY.rc
 
 RUNDIR="gc_4x5_TransportTracers_merra2"
 CMD="10\n1\n1\n1\n${TEST_ROOT}\n${RUNDIR}\nn\n"
 printf ${CMD} | ./createRunDir.sh >> ${LOG} 2>&1
-sed -i -e "${SED_INPUT_GEOS}" ${TEST_ROOT}/${RUNDIR}/input.geos
+sed -i -e "${SED_INPUT_GEOS_1}" ${TEST_ROOT}/${RUNDIR}/input.geos
+sed -i -e "${SED_INPUT_GEOS_2}" ${TEST_ROOT}/${RUNDIR}/input.geos
 sed -i -e "${SED_HISTORY_RC}" ${TEST_ROOT}/${RUNDIR}/HISTORY.rc
 
 
