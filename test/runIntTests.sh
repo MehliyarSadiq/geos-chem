@@ -70,5 +70,8 @@ for rundir in ./*; do
 	    msg="Program execution in ${rundir} halted with error!\n"
 	    printf ${msg} >> {$log} 2>&1
 	fi
+
+	# Navigate to integration test top-level folder
+	cd ../
     fi
 done
